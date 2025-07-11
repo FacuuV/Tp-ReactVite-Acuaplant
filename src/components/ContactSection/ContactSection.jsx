@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './ContactSection.css';
 
 const ContactSection = () => {
-	// 1. Usamos un solo estado para manejar todos los datos del formulario.
 	const [formData, setFormData] = useState({
 		nombre: '',
 		email: '',
@@ -11,8 +10,6 @@ const ContactSection = () => {
 		comentario: '',
 		archivo: null,
 	});
-
-	// 2. Una función genérica para manejar los cambios en los inputs de texto, email, etc.
 	const handleChange = e => {
 		const { name, value } = e.target;
 		setFormData(prevState => ({
@@ -20,20 +17,14 @@ const ContactSection = () => {
 			[name]: value,
 		}));
 	};
-
-	// 3. Una función específica para el input de tipo "file".
 	const handleFileChange = e => {
 		setFormData(prevState => ({
 			...prevState,
-			archivo: e.target.files[0], // Guardamos el objeto del archivo
+			archivo: e.target.files[0], 
 		}));
 	};
-
-	// 4. La función que se ejecuta al enviar el formulario.
 	const handleSubmit = e => {
-		e.preventDefault(); // Prevenimos que la página se recargue
-
-		// Mostramos los datos en la consola para verificar
+		e.preventDefault(); 
 		console.log('--- Datos del Formulario Recibidos ---');
 		console.log('Nombre y Apellido:', formData.nombre);
 		console.log('Email:', formData.email);
@@ -45,13 +36,9 @@ const ContactSection = () => {
 			formData.archivo ? formData.archivo.name : 'No se seleccionó archivo'
 		);
 		console.log('------------------------------------');
-
-		// Mostramos una alerta de confirmación
 		alert(
 			`¡Gracias por tu mensaje, ${formData.nombre}! Hemos "recibido" tus datos.`
 		);
-
-		// Limpiamos el formulario
 		setFormData({
 			nombre: '',
 			email: '',
@@ -60,7 +47,7 @@ const ContactSection = () => {
 			comentario: '',
 			archivo: null,
 		});
-		document.getElementById('contactForm').reset(); // Resetea el input de archivo
+		document.getElementById('contactForm').reset();
 	};
 
 	return (
@@ -72,7 +59,7 @@ const ContactSection = () => {
 					type='text'
 					id='nombre'
 					name='nombre'
-					placeholder='Ej: Juan Pérez'
+					placeholder='Ej: Facundo Vazquez'
 					value={formData.nombre}
 					onChange={handleChange}
 					required
@@ -83,7 +70,7 @@ const ContactSection = () => {
 					type='email'
 					id='email'
 					name='email'
-					placeholder='Ej: juan.perez@correo.com'
+					placeholder='Ej: facundo.vazquez@email.com'
 					value={formData.email}
 					onChange={handleChange}
 					required

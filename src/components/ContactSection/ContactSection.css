@@ -35,7 +35,7 @@
 	margin-bottom: 15px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	box-sizing: border-box; /* Importante para el padding */
+	box-sizing: border-box; 
 	transition: border-color 0.3s;
 }
 
@@ -54,8 +54,8 @@
 .contact-container .gender-group label {
 	font-weight: normal;
 	margin-right: 15px;
-	margin-left: 5px; /* Espacio entre el radio y la etiqueta */
-	margin-bottom: 0; /* Resetea el margen para alinear */
+	margin-left: 5px; 
+	margin-bottom: 0; 
 	cursor: pointer;
 }
 
